@@ -1,0 +1,36 @@
+<?php
+$title = 'Edit Album';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+ $form->setAttribute('action', $this->url(
+     'album',
+     array(
+         'action' => 'edit',
+         'id'     => $this->id,
+     )
+ ));
+
+$form->prepare();
+?>
+<style type="text/css">
+    .form_add label {
+        clear: both;
+        display: block;
+        margin: 20px 0;
+        width:300px;
+    }
+    .form_add label span
+    {
+        display:block;
+        width:200px;
+    }
+</style>
+<div class="form_add">
+    <?php
+    echo $this->form()->openTag($form);
+    echo $this->formCollection($form);
+    echo $this->form()->closeTag();
+    ?>
+</div>
